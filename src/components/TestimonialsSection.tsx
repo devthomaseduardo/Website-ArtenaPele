@@ -94,7 +94,7 @@ const TestimonialsSection = () => {
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-red/6 blur-[130px] rounded-full" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-[1600px] mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
           <div>

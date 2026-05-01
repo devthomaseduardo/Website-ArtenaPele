@@ -416,7 +416,7 @@ const ArtistsSection = () => {
         <div className="absolute right-0 top-1/3 w-[500px] h-[500px] rounded-full bg-brand-red/6 blur-[130px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-[1600px] mx-auto">
         {/* Header */}
         <div className="mb-14 flex flex-col items-center text-center">
           <Reveal>

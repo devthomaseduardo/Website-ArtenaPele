@@ -21,7 +21,7 @@ const LocationSection = ({
 }: LocationSectionProps) => {
   return (
     <section className="py-20 px-4 md:px-8 lg:px-16 text-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
         <div className="flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 14 }}

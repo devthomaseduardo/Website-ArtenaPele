@@ -47,7 +47,7 @@ const Footer = ({
       {/* ── Top separator line removed ── */}
 
       {/* ── Main content ── */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-16 pb-10">
+      <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pt-16 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {/* Studio Info */}
           <div className="flex flex-col space-y-4">

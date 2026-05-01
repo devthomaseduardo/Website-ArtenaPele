@@ -28,11 +28,11 @@ const HeroSection = ({
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/62 to-black/86" />
         {/* Glow vermelho esquerdo */}
-        <div className="absolute inset-0 opacity-0 sm:opacity-100 bg-[radial-gradient(900px_520px_at_84%_20%,rgba(193, 0, 0, 0.16),transparent_60%)]" />
+        <div className="absolute inset-0 opacity-0 sm:opacity-100 bg-[radial-gradient(900px_520px_at_84%_20%,rgba(193,0,0,0.06),transparent_60%)]" />
       </div>
 
       {/* Content grid */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start lg:items-center">
           {/* Copy */}
           <div className="lg:col-span-7">
@@ -142,7 +142,7 @@ const HeroSection = ({
                 <div className="col-span-12 sm:col-span-7">
                   <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
                     <img
-                      src="/tatto/arte.jpg"
+                      src="/editorial/artist-work-1.png"
                       alt="Trabalho em destaque"
                       className="h-[220px] sm:h-[420px] w-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
                     />
@@ -153,7 +153,7 @@ const HeroSection = ({
                 <div className="col-span-12 sm:col-span-5 grid gap-3">
                   <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
                     <img
-                      src="/hero/hero2.jpg"
+                      src="/editorial/artist-work-2.png"
                       alt="Artista trabalhando"
                       className="h-[160px] sm:h-[204px] w-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
                     />
@@ -161,7 +161,7 @@ const HeroSection = ({
                   </div>
                   <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
                     <img
-                      src="/hero/hero3.jpg"
+                      src="/hero/hero.jpg"
                       alt="Tatuagem finalizada"
                       className="h-[160px] sm:h-[204px] w-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
                     />
@@ -177,25 +177,12 @@ const HeroSection = ({
         <div className="mt-10 sm:mt-14 pb-8 sm:pb-10">
           <div className="flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory">
             {[
-            
+              "/hero/hero.jpg",
               "/hero/hero1.jpg",
               "/hero/hero2.jpg",
               "/hero/hero3.jpg",
               "/editorial/artist-work-1.png",
               "/editorial/artist-work-2.png",
-              "/editorial/dragon-tattoo-1.png",
-              "/editorial/floral-tattoo-1.png",
-              "/editorial/studio-portrait-1.png",
-              "/gallery/gallery1.jpg",
-              "/gallery/gallery2.jpg",
-              "/gallery/gallery3.jpg",
-              "/gallery/gallery4.jpg",
-              "/gallery/gallery5.jpg",
-              "/gallery/gallery6.jpg",
-              "/gallery/gallery7.jpg",
-              "/gallery/gallery9.png",
-              "/hero/hero.jpg",
-              "/gallery/gallery8.jpg",
             ].map((src) => (
               <div
                 key={src}

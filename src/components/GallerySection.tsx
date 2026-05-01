@@ -18,13 +18,7 @@ const GallerySection = ({
     "/gallery/gallery8.jpg",
     "/gallery/gallery9.png",
     "/editorial/dragon-tattoo-1.png",
-    "/editorial/artist-work-1.png",
-    "/editorial/artist-work-2.png",
-    "/editorial/floral-tattoo-1.png",
-    "/hero/hero.jpg",
-    "/hero/hero1.jpg",
-    "/hero/hero2.jpg",
-    "/hero/hero3.jpg"
+    "/editorial/floral-tattoo-1.png"
   ]
 }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -51,7 +45,7 @@ const GallerySection = ({
   return (
     <section className="relative min-h-screen py-20 px-4 md:px-8 text-white">
       {/* Header */}
-      <div className="max-w-7xl mx-auto mb-16 text-center flex flex-col items-center">
+      <div className="max-w-[1600px] mx-auto mb-16 text-center flex flex-col items-center">
         <Reveal>
           <h2 className="font-display text-5xl md:text-7xl tracking-tight text-white mb-6">
             {title}
@@ -79,7 +73,7 @@ const GallerySection = ({
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {images.map((image, index) => (
           <motion.div

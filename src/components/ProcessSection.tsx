@@ -140,7 +140,7 @@ const ProcessSection = () => {
         <div className="absolute right-0 bottom-1/4 w-[400px] h-[400px] rounded-full bg-white/4 blur-[100px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-[1600px] mx-auto">
         {/* Header */}
         <div className="text-center mb-16 flex flex-col items-center">
           <Reveal>
