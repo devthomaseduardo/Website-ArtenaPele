@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const GallerySection = ({
   title = "Galeria",
   subtitle = "Flash, projetos autorais e detalhes de cicatrização. Tudo em alta definição.",
   images = [
-    "/editorial/dragon-tattoo-1.png",
-    "/editorial/artist-work-1.png",
-    "/editorial/studio-portrait-1.png",
-    "/editorial/artist-work-2.png",
+    "/tatto/arte.jpg",
     "/gallery/gallery1.jpg",
     "/gallery/gallery2.jpg", 
     "/gallery/gallery3.jpg",
@@ -18,6 +16,11 @@ const GallerySection = ({
     "/gallery/gallery6.jpg",
     "/gallery/gallery7.jpg",
     "/gallery/gallery8.jpg",
+    "/gallery/gallery9.png",
+    "/editorial/dragon-tattoo-1.png",
+    "/editorial/artist-work-1.png",
+    "/editorial/artist-work-2.png",
+    "/editorial/floral-tattoo-1.png",
     "/hero/hero.jpg",
     "/hero/hero1.jpg",
     "/hero/hero2.jpg",
@@ -48,79 +51,92 @@ const GallerySection = ({
   return (
     <section className="relative min-h-screen py-20 px-4 md:px-8 text-white">
       {/* Header */}
-      <div className="max-w-7xl mx-auto mb-16 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-display text-5xl md:text-6xl tracking-tight text-white mb-6"
-        >
-          {title}
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-white/70 max-w-2xl mx-auto text-lg"
-        >
-          {subtitle}
-        </motion.p>
+      <div className="max-w-7xl mx-auto mb-16 text-center flex flex-col items-center">
+        <Reveal>
+          <h2 className="font-display text-5xl md:text-7xl tracking-tight text-white mb-6">
+            {title}
+          </h2>
+        </Reveal>
+        <Reveal>
+          <p className="text-white/70 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+            {subtitle}
+          </p>
+        </Reveal>
       </div>
 
       {/* Gallery Grid */}
       <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.1,
+              delayChildren: 0.3
+            }
+          }
+        }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {images.map((image, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -6 }}
-            className="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-3xl cursor-pointer group"
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.95 },
+              show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] } }
+            }}
+            whileHover={{ 
+              y: -8,
+              transition: { duration: 0.4, ease: "easeOut" }
+            }}
+            className="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-[2rem] cursor-pointer group shadow-2xl"
             onClick={() => openModal(index)}
           >
             {/* frame */}
-            <div className="absolute inset-0 rounded-3xl border border-white/12 bg-white/5 backdrop-blur-md shadow-[0_30px_140px_-80px_rgba(0,0,0,0.95)]" />
-            <div className="absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(520px_300px_at_20%_20%,rgba(138,3,3,0.22),transparent_60%),radial-gradient(520px_300px_at_80%_10%,rgba(255,255,255,0.10),transparent_60%)]" />
-
-            <img 
-              src={image}
-              alt={`Trabalho ${index + 1}`}
-              className="relative w-full h-full object-cover transition-transform duration-\\[1400ms\\] ease-out group-hover:scale-[1.08]"
-            />
+            <div className="absolute inset-0 rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <motion.div 
+              className="w-full h-full"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
+            >
+              <img 
+                src={image}
+                alt={`Trabalho ${index + 1}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </motion.div>
 
             {/* editorial overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-90" />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
 
-            <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-black/35 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.24em] text-white/75 backdrop-blur-md">
+            <div className="absolute left-6 right-6 top-6 flex items-center justify-between z-20 translate-y-[-10px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-75">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.24em] text-white/90 backdrop-blur-xl">
                 Flash
-                <span className="h-1 w-1 rounded-full bg-brand-red" />
-                Detalhe
+                <span className="h-1 w-1 rounded-full bg-brand-red animate-pulse" />
+                Estúdio
               </div>
-              <div className="rounded-full border border-white/12 bg-black/35 p-2 backdrop-blur-md">
-                <ZoomIn className="h-5 w-5 text-white/80" />
+              <div className="rounded-full border border-white/10 bg-black/40 p-3 backdrop-blur-xl hover:bg-brand-red/20 transition-colors duration-300">
+                <ZoomIn className="h-5 w-5 text-white" />
               </div>
             </div>
 
-            <div className="absolute left-5 right-5 bottom-5">
+            <div className="absolute left-6 right-6 bottom-6 z-20 translate-y-[10px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
               <div className="flex items-end justify-between gap-4">
                 <div>
-                  <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/55">
-                    Coleção
+                  <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 mb-1">
+                    Coleção Artena
                   </div>
-                  <div className="mt-2 text-lg font-semibold tracking-tight text-white/90">
+                  <div className="text-xl font-display tracking-wide text-white">
                     Trabalho {String(index + 1).padStart(2, "0")}
                   </div>
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/55">
-                  Toque para ampliar
+                <div className="h-10 w-10 flex items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+                   <ChevronRight className="h-5 w-5 text-white/70" />
                 </div>
               </div>
             </div>

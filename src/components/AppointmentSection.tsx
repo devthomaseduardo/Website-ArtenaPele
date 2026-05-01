@@ -15,7 +15,7 @@ interface AppointmentSectionProps {
 const AppointmentSection = ({
   title = "Agende sua Sessão",
   subtitle = "Converse direto com o estúdio. Você manda a referência e a gente confirma a melhor data disponível.",
-  backgroundImage = "/hero/hero.jpg",
+  backgroundImage = "/gallery/tatto.png",
   whatsappNumber = "5511999999999",
   bookingUrl = "https://wa.me/",
   phoneNumber = "(11) 99999-9999",
@@ -43,13 +43,14 @@ const AppointmentSection = ({
   return (
     <section className="relative w-full min-h-[720px] overflow-hidden py-16">
       {/* Background with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/78 to-black/70 z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(800px_520px_at_10%_50%,rgba(138,3,3,0.30),transparent_60%)] z-10" />
+      <div className="absolute inset-0 z-0 bg-[#080808]">
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/98 via-black/90 to-black/85 z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(800px_520px_at_10%_50%,rgba(108,2,2,0.15),transparent_60%)] z-10" />
         <img
           src={backgroundImage}
           alt="Estúdio de tatuagem background"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity grayscale-[50%]"
           loading="lazy"
         />
       </div>

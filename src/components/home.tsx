@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <div className="relative w-full min-h-screen text-white studio-black-bg">
-      <ParallaxBackdrop imageSrc="/editorial/artist-work-1.png" />
+      <ParallaxBackdrop />
 
       <Header onAppointmentClick={scrollToAppointment} />
 

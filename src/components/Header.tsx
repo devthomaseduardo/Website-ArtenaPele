@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { WhatsAppIcon } from "./StudioIcons";
+import Magnetic from "./Magnetic";
 
 interface MenuItem {
   label: string;
@@ -17,7 +18,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  logo = "Estúdio Black",
+  logo = "GRAVURA",
   menuItems = [
     { label: "Início", href: "/" },
     { label: "Serviços", href: "/servicos" },
@@ -137,22 +138,26 @@ const Header: React.FC<HeaderProps> = ({
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <a href="#" className="text-lg sm:text-xl font-bold tracking-tighter">
-            {logo}
-            <span className="ml-2 align-middle inline-block h-1.5 w-1.5 rounded-full bg-brand-red" />
-          </a>
+          <Magnetic strength={0.2}>
+            <a href="/" className="text-xl sm:text-2xl font-display tracking-tight hover:text-brand-red transition-colors duration-300">
+              {logo}
+              <span className="ml-1 align-middle inline-block h-2 w-2 rounded-full bg-brand-red animate-pulse" />
+            </a>
+          </Magnetic>
         </motion.div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <ul className="flex space-x-6">
+        <nav className="hidden md:flex items-center space-x-12">
+          <ul className="flex space-x-8">
             {menuItems.map((item, index) => (
               <motion.li 
                 key={index} 
                 custom={index} 
                 variants={navItemVariants}
               >
-                <NavItem href={item.href}>{item.label}</NavItem>
+                <Magnetic strength={0.4}>
+                  <NavItem href={item.href}>{item.label}</NavItem>
+                </Magnetic>
               </motion.li>
             ))}
           </ul>
@@ -160,7 +165,9 @@ const Header: React.FC<HeaderProps> = ({
             variants={navItemVariants} 
             custom={menuItems.length}
           >
-            <AppointmentButton />
+            <Magnetic strength={0.2}>
+              <AppointmentButton />
+            </Magnetic>
           </motion.div>
         </nav>
 
